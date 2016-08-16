@@ -1,0 +1,7 @@
+FROM golang:1.6.3
+
+COPY ./ "$GOPATH/src/github.com/mesosphere/mesos-dns"
+
+WORKDIR "$GOPATH/src/github.com/mesosphere/mesos-dns"
+
+RUN make deps

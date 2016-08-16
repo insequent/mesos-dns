@@ -18,12 +18,16 @@ the same stability and compatibility guarantees as releases.
 All branches and pull requests are tested by [Circle-CI](https://circleci.com/gh/mesosphere/mesos-dns), which also
 outputs artifacts for Mac OS X, Windows, and Linux via cross-compilation.
 
-You will need [Go](https://golang.org/) *1.5* or later to build the project.
-All dependencies are vendored using `Godeps`. You must first install it in order to build from source.
+Builds can be done using [Go](https://golang.org/) *1.6.3* or later or through [Docker](https://www.docker.com/). 
+A Makefile is also available for your convenience.
 
 ```shell
-$ go get github.com/tools/godep
-$ godep go build ./...
+# Using go
+$ go build ./...
+# Using go via makefile
+$ make build
+# Using docker via makefile
+$ make build DOCKER=true
 ```
 
 ### Building for release
@@ -52,8 +56,17 @@ There are only very few users with access to the private key, and they also have
 
 
 ## Testing
+
+Builds can be done using [Go](https://golang.org/) *1.6.3* or later or through [Docker](https://www.docker.com/). 
+A Makefile is also available for your convenience.
+
 ```shell
-$ godep go test -race ./...
+# Using go
+$ go test -race ./...
+# Using go via makefile
+$ make gorace
+# Using docker via makefile
+$ make gorace DOCKER=true
 ```
 
 ## Documentation
